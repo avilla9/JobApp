@@ -1,0 +1,256 @@
+:root {
+  --font-color: #090B0C;
+  --primary-color: #181D31;
+  --bgGradient-color: linear-gradient(#F8F4E1, #39A2DB);
+  --bgPrimary-color: #E8F0F2;
+  --bgSecondary-color: #9ec8df;
+  --oposite-color: #023047;
+  --oposite-font-color: #e0fbfc;
+}
+
+.darkMode {
+  --font-color: #e0fbfc;
+  --bgGradient-color: linear-gradient(#001219, #023047);
+  --bgPrimary-color: #000814;
+  --bgSecondary-color: #001d3d;
+  --primary-color: #3a86ff;
+  --oposite-color: #39A2DB;
+  --oposite-font-color: #090B0C;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 2% 4%;
+  justify-content: space-evenly;
+  background-image: var(--bgGradient-color);
+  color: var(--font-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.switchMode {
+  position: sticky;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  top: 55px;
+  cursor: pointer;
+  background-color: var(--oposite-color);
+  color: var(--oposite-font-color);
+  outline-color: none;
+  border: none;
+  font-weight: bolder;
+  font-size: 16px;
+  text-align: center;
+}
+
+.switchMode:hover {
+  outline: 2px solid var(--font-color);
+}
+
+input, textarea, p, span {
+  font-size: 16px;
+}
+
+.leftPanel, .rightPanel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ########## LEFT ########## */
+
+.leftPanel {
+  max-width: 30%;
+  padding-right: 2%;
+}
+
+/* Job Container */
+
+.jobContainer {
+  margin-bottom: 24px;
+}
+
+.jobContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobForm {
+  color: var(--font-color);
+  height: 35px;
+  margin: 0 0 12px 0;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  padding-left: 15px;
+  width: 80%;
+  background-color: var(--bgPrimary-color);
+}
+
+.jobForm::placeholder {
+  color: var(--font-color);
+}
+
+.jobForm:focus {
+  outline: solid 1px var(--primary-color);
+  background-color: var(--bgSecondary-color);
+}
+
+.jobForm:hover {
+  background-color: var(--bgSecondary-color);
+}
+
+.addSkill {
+  font-size: 30px;
+  color: var(--font-color);
+  background-color: var(--bgPrimary-color);
+  margin: 0 0 12px 0;
+  height: 35px !important;
+  width: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.addSkill:hover {
+  outline: solid 1px var(--primary-color);
+  background-color: var(--bgSecondary-color);
+}
+
+.descriptionArea {
+  padding-top: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: none;
+  height: 80px;
+  word-break: break-word;
+}
+
+.descriptionArea::-webkit-scrollbar {
+  width: 3px;
+}
+
+.descriptionArea::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+.descriptionArea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgrey;
+  outline: solid 1px 1px solid slategrey;
+}
+
+.descriptionArea::-webkit-scrollbar-button:vertical:start:increment {
+  display: block;
+  height: 12px;
+  background-color: transparent;
+}
+
+.descriptionArea::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+  height: 12px;
+  background-color: transparent;
+}
+
+.submitForm {
+  font-size: 16px;
+  background-color: var(--bgPrimary-color);
+  height: 35px;
+  width: 80px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+.submitForm:hover {
+  outline: solid 1px var(--primary-color);
+  background-color: var(--bgSecondary-color);
+}
+
+/* Skills Container */
+
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skillsContainer h2 {
+  margin: 0;
+}
+
+/* ########## RIGHT ########## */
+
+.rightPanel {
+  max-width: 70%;
+  padding-left: 2%;
+}
+
+/* Job Details */
+
+.jobDetails {
+  background-color: var(--bgSecondary-color);
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  padding: 0 7%;
+  margin-bottom: 16px;
+}
+
+.jobDetails .title {
+  text-align: center;
+}
+
+.jobDetails .skills {
+  padding: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.jobDetails .skills span {
+  font-weight: 600;
+  margin: 0 10px 5px 10px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.jobDetails .skills span:hover {
+  outline: solid 1px var(--primary-color);
+  background-color: var(--bgPrimary-color);
+}
+
+.jobDetails .description {
+  text-align: justify;
+}
+
+/* Jobs List */
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobList .jobElement {
+  text-align: center;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--bgPrimary-color);
+  max-width: 95%;
+  width: 95%;
+  cursor: pointer;
+}
+
+.jobList .jobElement:hover {
+  outline: solid 1px var(--primary-color);
+  background-color: var(--bgSecondary-color);
+}
