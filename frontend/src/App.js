@@ -31,14 +31,6 @@ export default function App() {
     }
   }
 
-
-  /* const [darkMode, setDarkMode] = useState(false);
-  const [darkMode, setDarkMode] = useState(localStorage.getItem("DARK_MODE"));
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
-  useEffect(() => {
-    localStorage.setItem("DARK_MODE", darkMode);
-  }, [darkMode]); */
   return (
     <div className="App">
       <button className="switchMode" value={mode} onClick={changeMode}>
