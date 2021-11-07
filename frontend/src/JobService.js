@@ -13,24 +13,16 @@ export default class JobService {
         const url = `${API_URL}/api/skills/`;
         return axios.get(url).then(response => response.data);
     }
-    /* getJobsByURL(link){
-        const url = `${API_URL}${link}`;
-        return axios.get(url).then(response => response.data);
-    }
-    getCustomer(pk) {
+    getJob(pk) {
         const url = `${API_URL}/api/jobs/${pk}`;
         return axios.get(url).then(response => response.data);
     }
-    deleteCustomer(customer){
-        const url = `${API_URL}/api/jobs/${customer.pk}`;
+    deleteJob(job) {
+        const url = `${API_URL}/api/jobs/${job.pk}`;
         return axios.delete(url);
     }
-    createCustomer(customer){
+    createJob(job) {
         const url = `${API_URL}/api/jobs/`;
-        return axios.post(url,customer);
+        return axios.post(url, job);
     }
-    updateCustomer(customer){
-        const url = `${API_URL}/api/jobs/${customer.pk}`;
-        return axios.put(url,customer);
-    } */
 }

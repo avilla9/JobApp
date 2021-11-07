@@ -24,7 +24,7 @@ def mostUsedSkills(request):
         groupedSkills = sorted([[k, ]*v for k, v in cSkills.items()], key=len, reverse=True)
 
         data = []
-        for group in groupedSkills:
+        for group in groupedSkills [:5]:
             data.append({
                 'skill': group[0],
                 'count': len(group)
@@ -39,24 +39,12 @@ def jobsList(request):
         data = []
         nextPage = 1
         previousPage = 1
-        jobs = Job.objects.all()
-        page = request.GET.get('page', 1)
-        paginator = Paginator(jobs, 10)
-        try:
-            data = paginator.page(page)
-        except PageNotAnInteger:
-            data = paginator.page(1)
-        except EmptyPage:
-            data = paginator.page(paginator.num_pages)
+        jobs = Job.objects.all().order_by('-created_on')
 
         serializer = JobSerializer(
-            data, context={'request': request}, many=True)
-        if data.has_next():
-            nextPage = data.next_page_number()
-        if data.has_previous():
-            previousPage = data.previous_page_number()
-
-        return Response({'data': serializer.data, 'count': paginator.count, 'numpages': paginator.num_pages, 'nextlink': '/api/jobs/?page=' + str(nextPage), 'prevlink': '/api/jobs/?page=' + str(previousPage)})
+            jobs, context={'request': request}, many=True)
+        
+        return Response({'data': serializer.data})
 
     elif request.method == 'POST':
         serializer = JobSerializer(data=request.data)

@@ -24,11 +24,17 @@ class SkillList extends Component {
         return (
             <div className="skillsContainer">
                 <h2>Most Used Skills</h2>
-                {
-                    this.state.skills.map(
-                        skill => <li key={skill.skill}>{skill.skill}: {skill.count} times</li>
-                    )
-                }
+                <ul className="skillList">
+                    {
+                        this.state.skills.map(
+                            skill =>
+                                <li key={skill.skill} className="element">
+                                    {skill.skill}
+                                    <span className="count">{skill.count}</span>
+                                </li>
+                        )
+                    }
+                </ul>
             </div>
         );
     }

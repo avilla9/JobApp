@@ -9,24 +9,26 @@ class JobList extends Component {
         super(props);
         this.state = {
             jobs: [],
-            /* nextPageURL: '' */
+            update: false
         };
-        /* this.nextPage = this.nextPage.bind(this); */
-        /* this.handleDelete = this.handleDelete.bind(this); */
     }
+
     componentDidMount() {
         var self = this;
         jobService.getJobs().then(function (result) {
-            self.setState({ jobs: result.data/* , nextPageURL: result.nextlink */ })
+            self.setState({ jobs: result.data });
         });
     }
+
     render() {
         return (
             <div className="jobList">
                 <h2>Job List</h2>
                 {
                     this.state.jobs.map(
-                        job => <div className="jobElement" key={job.pk}>{job.title}</div>
+                        job => <div className="jobElement" key={job.pk}>
+                            {job.title}
+                        </div>
                     )
                 }
             </div>

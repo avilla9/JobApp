@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import JobList from './JobList'
+import JobList from './JobList';
 import SkillList from './SkillList';
+import CreateJob from './CreateJob';
 
 function useLocalStorageState(key, initialValue) {
   const [value, setValue] = useState(() => {
@@ -39,21 +40,8 @@ export default function App() {
         {mode === 'darkMode' ? "Off" : "On"}
       </button>
       <div className="leftPanel">
-        <div className="jobContainer">
-          <form>
-            <h2>Harness Job Manager</h2>
-            <input className="jobForm" type="text" name="title" placeholder="Title" />
-            <textarea className="jobForm descriptionArea" name="description" placeholder="Description"></textarea>
-            <input className="jobForm" type="text" name="skill" placeholder="Skill" />
-            <input className="jobForm" type="text" name="skill" placeholder="Skill" />
-            <input className="jobForm" type="text" name="skill" placeholder="Skill" />
-            <input className="jobForm" type="text" name="skill" placeholder="Skill" />
-            <input className="jobForm" type="text" name="skill" placeholder="Skill" />
-            <button className="addSkill">+</button>
-            <button className="submitForm">Save</button>
-          </form>
-        </div>
-        <SkillList/>
+        <CreateJob />
+        <SkillList />
       </div>
       <div className="rightPanel">
         <div className="jobDetails">
