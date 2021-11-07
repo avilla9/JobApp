@@ -9,6 +9,10 @@ export default class JobService {
         const url = `${API_URL}/api/jobs/`;
         return axios.get(url).then(response => response.data);
     }
+    getSkills() {
+        const url = `${API_URL}/api/skills/`;
+        return axios.get(url).then(response => response.data);
+    }
     /* getJobsByURL(link){
         const url = `${API_URL}${link}`;
         return axios.get(url).then(response => response.data);

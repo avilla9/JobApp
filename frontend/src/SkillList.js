@@ -3,12 +3,12 @@ import JobService from './JobService';
 
 const jobService = new JobService();
 
-class JobList extends Component {
+class SkillList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            jobs: [],
+            skills: [],
             /* nextPageURL: '' */
         };
         /* this.nextPage = this.nextPage.bind(this); */
@@ -16,21 +16,21 @@ class JobList extends Component {
     }
     componentDidMount() {
         var self = this;
-        jobService.getJobs().then(function (result) {
-            self.setState({ jobs: result.data/* , nextPageURL: result.nextlink */ })
+        jobService.getSkills().then(function (result) {
+            self.setState({ skills: result });
         });
     }
     render() {
         return (
-            <div className="jobList">
-                <h2>Job List</h2>
+            <div className="skillsContainer">
+                <h2>Most Used Skills</h2>
                 {
-                    this.state.jobs.map(
-                        job => <div className="jobElement" key={job.pk}>{job.title}</div>
+                    this.state.skills.map(
+                        skill => <li key={skill.skill}>{skill.skill}: {skill.count} times</li>
                     )
                 }
             </div>
         );
     }
 }
-export default JobList;
+export default SkillList;

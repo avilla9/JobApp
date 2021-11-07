@@ -1,6 +1,7 @@
+import './App.css';
 import React, { useState, useEffect } from "react";
 import JobList from './JobList'
-import './App.css';
+import SkillList from './SkillList';
 
 function useLocalStorageState(key, initialValue) {
   const [value, setValue] = useState(() => {
@@ -52,16 +53,7 @@ export default function App() {
             <button className="submitForm">Save</button>
           </form>
         </div>
-        <div className="skillsContainer">
-          <h2>Most Used Skills</h2>
-          <ul>
-            <li>Groundhog</li>
-            <li>Silkworm</li>
-            <li>Cockscomb Cup Coral</li>
-            <li>Butterfly</li>
-            <li>American Alligator</li>
-          </ul>
-        </div>
+        <SkillList/>
       </div>
       <div className="rightPanel">
         <div className="jobDetails">
